@@ -1,0 +1,193 @@
+.breezefill-suggestions,
+.breezefill-prompt,
+.breezefill-toast {
+  font-family: "SF Pro Display", "Avenir Next", "Segoe UI", sans-serif !important;
+  line-height: 1.4 !important;
+  color: #112133 !important;
+  box-sizing: border-box !important;
+}
+
+.breezefill-suggestions *,
+.breezefill-prompt *,
+.breezefill-toast * {
+  box-sizing: border-box !important;
+}
+
+.breezefill-suggestions {
+  position: fixed !important;
+  z-index: 2147483600 !important;
+  border-radius: 18px !important;
+  border: 1px solid rgba(24, 42, 66, 0.09) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 251, 255, 0.94)) !important;
+  box-shadow:
+    0 14px 34px rgba(17, 33, 51, 0.12),
+    0 3px 12px rgba(17, 33, 51, 0.06) !important;
+  backdrop-filter: blur(22px) !important;
+  overflow: hidden !important;
+}
+
+.breezefill-suggestions__list {
+  padding: 5px !important;
+}
+
+.breezefill-suggestions[data-compact="true"] .breezefill-suggestions__list {
+  padding: 4px !important;
+}
+
+.breezefill-suggestion {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 4px !important;
+  border: 0 !important;
+  background: transparent !important;
+  border-radius: 14px !important;
+  padding: 10px 12px !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  transition: background 160ms ease !important;
+}
+
+.breezefill-suggestion:hover,
+.breezefill-suggestion.is-active {
+  background: rgba(69, 110, 189, 0.08) !important;
+}
+
+.breezefill-suggestions[data-compact="true"] .breezefill-suggestion {
+  padding: 10px 12px 9px !important;
+}
+
+.breezefill-suggestion__value {
+  display: block !important;
+  width: 100% !important;
+  color: #12243c !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  word-break: break-word !important;
+  letter-spacing: -0.01em !important;
+}
+
+.breezefill-suggestion__meta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  gap: 12px !important;
+}
+
+.breezefill-suggestion__label {
+  font-size: 11px !important;
+  color: #6a7d94 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 700 !important;
+}
+
+.breezefill-suggestion__badge {
+  flex-shrink: 0 !important;
+  padding: 3px 8px !important;
+  border-radius: 999px !important;
+  background: rgba(17, 33, 51, 0.05) !important;
+  color: #5c718b !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+.breezefill-prompt {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: 18px !important;
+  z-index: 2147483600 !important;
+  width: min(440px, calc(100vw - 24px)) !important;
+  padding: 14px 14px 13px !important;
+  border-radius: 20px !important;
+  border: 1px solid rgba(24, 42, 66, 0.1) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(247, 250, 255, 0.95)) !important;
+  box-shadow:
+    0 16px 44px rgba(17, 33, 51, 0.16),
+    0 6px 18px rgba(17, 33, 51, 0.06) !important;
+  backdrop-filter: blur(24px) !important;
+  transform: translateX(-50%) !important;
+}
+
+.breezefill-prompt__title {
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+  color: #10233d !important;
+}
+
+.breezefill-prompt__body {
+  margin: 6px 0 0 !important;
+  color: #617791 !important;
+  font-size: 13px !important;
+}
+
+.breezefill-prompt__actions {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: 12px !important;
+}
+
+.breezefill-button {
+  appearance: none !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  padding: 10px 13px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: box-shadow 160ms ease, background 160ms ease !important;
+}
+
+.breezefill-button--primary {
+  background: #1677ff !important;
+  color: white !important;
+  box-shadow: 0 8px 18px rgba(22, 119, 255, 0.2) !important;
+}
+
+.breezefill-button--ghost {
+  background: rgba(17, 33, 51, 0.05) !important;
+  color: #3e5772 !important;
+}
+
+.breezefill-toast {
+  position: fixed !important;
+  left: 50% !important;
+  bottom: 92px !important;
+  z-index: 2147483601 !important;
+  padding: 11px 14px !important;
+  border-radius: 999px !important;
+  background: rgba(18, 34, 54, 0.9) !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  box-shadow: 0 12px 24px rgba(12, 28, 46, 0.2) !important;
+  opacity: 0 !important;
+  transform: translate(-50%, 6px) !important;
+  transition: opacity 180ms ease, transform 180ms ease !important;
+}
+
+.breezefill-toast.is-visible {
+  opacity: 1 !important;
+  transform: translate(-50%, 0) !important;
+}
+
+@media (max-width: 640px) {
+  .breezefill-prompt {
+    left: 12px !important;
+    bottom: 12px !important;
+    width: auto !important;
+    transform: none !important;
+  }
+
+  .breezefill-toast {
+    bottom: 84px !important;
+  }
+}

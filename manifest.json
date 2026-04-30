@@ -1,0 +1,49 @@
+{
+  "manifest_version": 3,
+  "name": "BreezeFill",
+  "description": "A clean form autofill assistant that suggests responses and remembers what you want to save.",
+  "version": "0.1.0",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "BreezeFill",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png"
+    }
+  },
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "lib/constants.js",
+        "lib/site-adapters.js",
+        "lib/field-matcher.js",
+        "lib/storage.js",
+        "content-script.js"
+      ],
+      "css": [
+        "content-styles.css"
+      ],
+      "all_frames": true,
+      "run_at": "document_idle"
+    }
+  ]
+}

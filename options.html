@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BreezeFill Settings</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <div class="orb orb--one"></div>
+    <div class="orb orb--two"></div>
+
+    <main class="app-shell">
+      <section class="hero card">
+        <div class="hero__copy">
+          <div class="hero__brand">
+            <img src="assets/logo-mark.svg" alt="" class="hero__mark">
+            <div>
+              <p class="eyebrow">Smart browser autofill</p>
+              <h1>BreezeFill</h1>
+            </div>
+          </div>
+
+          <p class="hero__body">
+            BreezeFill suggests clean autofill options while you type and asks before it
+            learns anything new. Your profile stays editable, and site-specific memories
+            stay visible.
+          </p>
+        </div>
+
+        <div class="hero__stats">
+          <div class="stat">
+            <span>Profile coverage</span>
+            <strong id="statProfile">0/0</strong>
+          </div>
+          <div class="stat">
+            <span>Saved responses</span>
+            <strong id="statMemories">0</strong>
+          </div>
+          <div class="stat">
+            <span>Muted sites</span>
+            <strong id="statMuted">0</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-grid">
+        <section class="card">
+          <div class="section-head">
+            <div>
+              <h2>Your profile</h2>
+              <p>These values power the most common autofill suggestions.</p>
+            </div>
+            <button id="saveProfileButton" type="submit" form="profileForm" class="button button--primary">
+              Save profile
+            </button>
+          </div>
+
+          <div class="profile-tabs" role="tablist" aria-label="Profile sections">
+            <button id="tab-personal" class="profile-tab is-active" type="button" data-tab="personal" role="tab" aria-selected="true" aria-controls="panel-personal">
+              Personal
+            </button>
+            <button id="tab-education" class="profile-tab" type="button" data-tab="education" role="tab" aria-selected="false" aria-controls="panel-education">
+              Education
+            </button>
+          </div>
+
+          <form id="profileForm">
+            <section id="panel-personal" class="profile-panel is-active" data-panel="personal" role="tabpanel" aria-labelledby="tab-personal">
+              <div class="profile-grid">
+                <label class="field">
+                  <span>Full name</span>
+                  <input id="profile-fullName" name="fullName" type="text">
+                </label>
+                <label class="field">
+                  <span>First name</span>
+                  <input id="profile-firstName" name="firstName" type="text">
+                </label>
+                <label class="field">
+                  <span>Last name</span>
+                  <input id="profile-lastName" name="lastName" type="text">
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input id="profile-email" name="email" type="email">
+                </label>
+                <label class="field">
+                  <span>Phone</span>
+                  <input id="profile-phone" name="phone" type="tel">
+                </label>
+                <label class="field">
+                  <span>Company</span>
+                  <input id="profile-company" name="company" type="text">
+                </label>
+                <label class="field">
+                  <span>Job title</span>
+                  <input id="profile-jobTitle" name="jobTitle" type="text">
+                </label>
+                <label class="field field--wide">
+                  <span>Address line 1</span>
+                  <input id="profile-address1" name="address1" type="text">
+                </label>
+                <label class="field field--wide">
+                  <span>Address line 2</span>
+                  <input id="profile-address2" name="address2" type="text">
+                </label>
+                <label class="field">
+                  <span>City</span>
+                  <input id="profile-city" name="city" type="text">
+                </label>
+                <label class="field">
+                  <span>State / Province</span>
+                  <input id="profile-state" name="state" type="text">
+                </label>
+                <label class="field">
+                  <span>ZIP / Postal code</span>
+                  <input id="profile-zip" name="zip" type="text">
+                </label>
+                <label class="field">
+                  <span>Country</span>
+                  <input id="profile-country" name="country" type="text">
+                </label>
+                <label class="field field--wide">
+                  <span>Website</span>
+                  <input id="profile-website" name="website" type="url">
+                </label>
+                <label class="field field--wide">
+                  <span>Portfolio website</span>
+                  <input id="profile-portfolio" name="portfolio" type="url">
+                </label>
+                <label class="field">
+                  <span>LinkedIn</span>
+                  <input id="profile-linkedin" name="linkedin" type="url">
+                </label>
+                <label class="field">
+                  <span>GitHub</span>
+                  <input id="profile-github" name="github" type="url">
+                </label>
+                <label class="field field--wide">
+                  <span>X / Twitter</span>
+                  <input id="profile-xProfile" name="xProfile" type="url">
+                </label>
+              </div>
+            </section>
+
+            <section id="panel-education" class="profile-panel" data-panel="education" role="tabpanel" aria-labelledby="tab-education" hidden>
+              <div class="panel-intro">
+                <h3>Education details</h3>
+                <p>Keep your school, degree, and graduation info ready for internship and application forms.</p>
+              </div>
+
+              <div class="profile-grid">
+                <label class="field field--wide">
+                  <span>School / University</span>
+                  <input id="profile-schoolName" name="schoolName" type="text">
+                </label>
+                <label class="field">
+                  <span>Degree</span>
+                  <input id="profile-degree" name="degree" type="text" placeholder="Bachelor of Science">
+                </label>
+                <label class="field">
+                  <span>Program / Major</span>
+                  <input id="profile-programName" name="programName" type="text" placeholder="Computer Science">
+                </label>
+                <label class="field field--wide">
+                  <span>Expected graduation</span>
+                  <input id="profile-graduationInfo" name="graduationInfo" type="text" placeholder="May 2027 or 2027">
+                </label>
+              </div>
+            </section>
+          </form>
+        </section>
+
+        <div class="side-column">
+          <section class="card">
+            <div class="section-head">
+              <div>
+                <h2>Behavior</h2>
+                <p>Keep suggestions helpful instead of noisy.</p>
+              </div>
+            </div>
+
+            <div class="setting-row">
+              <div>
+                <h3>Extension enabled</h3>
+                <p>Turns suggestions and save prompts on everywhere.</p>
+              </div>
+              <label class="toggle">
+                <input id="setting-enabled" type="checkbox">
+                <span class="toggle__track"></span>
+              </label>
+            </div>
+
+            <div class="setting-row">
+              <div>
+                <h3>Ask before saving</h3>
+                <p>Prompts you when BreezeFill notices new responses in a form.</p>
+              </div>
+              <label class="toggle">
+                <input id="setting-promptToSave" type="checkbox">
+                <span class="toggle__track"></span>
+              </label>
+            </div>
+
+            <div class="setting-row setting-row--stack">
+              <div>
+                <h3>Suggestion count</h3>
+                <p>How many matches BreezeFill should show at once.</p>
+              </div>
+              <label class="select-field">
+                <select id="setting-maxSuggestions">
+                  <option value="4">4</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="section-head section-head--memories">
+              <div>
+                <h2>Saved responses</h2>
+                <p>Everything BreezeFill can suggest right now.</p>
+              </div>
+              <div class="button-row">
+                <button id="clearMutedButton" class="button button--ghost" type="button">
+                  Clear muted sites
+                </button>
+                <button id="clearMemoriesButton" class="button button--secondary" type="button">
+                  Clear all
+                </button>
+              </div>
+            </div>
+
+            <div id="memoryEmptyState" class="empty-state" hidden>
+              Nothing saved yet. Fill out a form and BreezeFill will offer to remember it.
+            </div>
+
+            <div id="memoryList" class="memory-list"></div>
+          </section>
+        </div>
+      </section>
+
+      <div id="statusBanner" class="status-banner" aria-live="polite"></div>
+    </main>
+
+    <script src="lib/constants.js"></script>
+    <script src="lib/storage.js"></script>
+    <script src="options.js"></script>
+  </body>
+</html>

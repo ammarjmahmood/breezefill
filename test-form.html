@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BreezeFill Test Form</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5fbff;
+        --panel: rgba(255, 255, 255, 0.92);
+        --text: #10233d;
+        --muted: #60768f;
+        --line: rgba(16, 35, 61, 0.1);
+        --primary: #1677ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "SF Pro Display", "Avenir Next", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(126, 201, 255, 0.35), transparent 32%),
+          linear-gradient(180deg, #fbfeff 0%, var(--bg) 100%);
+      }
+
+      .shell {
+        width: min(880px, calc(100vw - 24px));
+        margin: 40px auto;
+      }
+
+      .hero,
+      .card {
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: 0 24px 60px rgba(16, 35, 61, 0.12);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero {
+        padding: 28px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      h1,
+      h2,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(34px, 5vw, 56px);
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+      }
+
+      .hero p:last-child {
+        margin-top: 14px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .field {
+        display: block;
+      }
+
+      .field--wide {
+        grid-column: 1 / -1;
+      }
+
+      .field span {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #405d79;
+      }
+
+      .ats-question {
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #405d79;
+      }
+
+      .field input,
+      .field select,
+      .field textarea {
+        width: 100%;
+        border: 1px solid rgba(16, 35, 61, 0.1);
+        border-radius: 18px;
+        padding: 13px 15px;
+        background: white;
+        color: var(--text);
+        font: inherit;
+      }
+
+      .field textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .field input:focus,
+      .field select:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: rgba(22, 119, 255, 0.4);
+        box-shadow: 0 0 0 4px rgba(22, 119, 255, 0.12);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      button {
+        appearance: none;
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 16px;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .button-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 10px 20px rgba(22, 119, 255, 0.22);
+      }
+
+      .button-ghost {
+        background: rgba(16, 35, 61, 0.06);
+        color: #294664;
+      }
+
+      .checklist {
+        display: grid;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .checklist div {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(16, 35, 61, 0.04);
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .submitted {
+        margin-top: 16px;
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(24, 170, 116, 0.1);
+        color: #0f5d3d;
+        display: none;
+      }
+
+      .submitted.is-visible {
+        display: block;
+      }
+
+      @media (max-width: 780px) {
+        .grid,
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <p class="eyebrow">BreezeFill Test Page</p>
+        <h1>Try contact, social, and education autofill on one form.</h1>
+        <p>
+          This page keeps the form on-screen after submit, which makes it easy to test
+          suggestions first and the save prompt second.
+        </p>
+      </section>
+
+      <section class="grid">
+        <section class="card">
+          <h2>Sample form</h2>
+          <p class="eyebrow" style="margin-top: 8px;">Ideal for testing common autofill fields</p>
+
+          <form id="demoForm">
+            <div class="form-grid">
+              <label class="field">
+                <span>Full name</span>
+                <input name="fullName" type="text" autocomplete="name" placeholder="Ammar Mahmood">
+              </label>
+
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" placeholder="ammar@example.com">
+              </label>
+
+              <label class="field">
+                <span>Phone</span>
+                <input name="phone" type="tel" autocomplete="tel" placeholder="+1 555 555 5555">
+              </label>
+
+              <label class="field">
+                <span>Company</span>
+                <input name="company" type="text" autocomplete="organization" placeholder="OpenAI">
+              </label>
+
+              <label class="field field--wide">
+                <span>Website</span>
+                <input name="website" type="url" autocomplete="url" placeholder="https://example.com">
+              </label>
+
+              <label class="field">
+                <span>LinkedIn profile</span>
+                <input name="linkedinProfile" type="url" placeholder="https://www.linkedin.com/in/your-name">
+              </label>
+
+              <label class="field">
+                <span>GitHub</span>
+                <input name="github" type="url" placeholder="https://github.com/your-handle">
+              </label>
+
+              <label class="field field--wide">
+                <span>Portfolio website</span>
+                <input name="portfolioWebsite" type="url" placeholder="https://yourportfolio.com">
+              </label>
+
+              <label class="field field--wide">
+                <span>X / Twitter</span>
+                <input name="xProfile" type="url" placeholder="https://x.com/your-handle">
+              </label>
+
+              <label class="field field--wide">
+                <span>School / University</span>
+                <input name="schoolName" type="text" placeholder="University of Toronto">
+              </label>
+
+              <label class="field">
+                <span>Degree</span>
+                <input name="degree" type="text" placeholder="Bachelor of Science">
+              </label>
+
+              <label class="field">
+                <span>Program / Major</span>
+                <input name="programName" type="text" placeholder="Computer Science">
+              </label>
+
+              <label class="field">
+                <span>Degree level</span>
+                <select name="degreeLevel">
+                  <option value="">Select degree level</option>
+                  <option>Bachelor's</option>
+                  <option>Master's</option>
+                  <option>PhD</option>
+                </select>
+              </label>
+
+              <label class="field field--wide">
+                <span>Expected graduation</span>
+                <input name="graduationInfo" type="text" placeholder="May 2027 or 2027">
+              </label>
+
+              <label class="field field--wide">
+                <span>Address line 1</span>
+                <input name="address1" type="text" autocomplete="address-line1" placeholder="123 Example Street">
+              </label>
+
+              <label class="field">
+                <span>City</span>
+                <input name="city" type="text" autocomplete="address-level2" placeholder="Toronto">
+              </label>
+
+              <label class="field">
+                <span>State / Province</span>
+                <input name="state" type="text" autocomplete="address-level1" placeholder="Ontario">
+              </label>
+
+              <label class="field">
+                <span>ZIP / Postal code</span>
+                <input name="zip" type="text" autocomplete="postal-code" placeholder="M5V 2T6">
+              </label>
+
+              <label class="field field--wide">
+                <span>Notes</span>
+                <textarea name="notes" placeholder="You can also test a site-specific remembered field here."></textarea>
+              </label>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="button-primary">Submit test form</button>
+              <button type="reset" class="button-ghost">Reset form</button>
+            </div>
+          </form>
+
+          <div id="submittedMessage" class="submitted">
+            Submitted. If you entered new values, BreezeFill should now offer to save them.
+          </div>
+        </section>
+
+        <aside class="card">
+          <h2>Quick checklist</h2>
+          <div class="checklist">
+            <div>1. Load the extension unpacked and open the BreezeFill popup or settings page.</div>
+            <div>2. Add a name, email, or phone number to your profile.</div>
+            <div>3. Focus the matching field here and confirm the suggestion appears quietly.</div>
+            <div>4. Type a different value, leave the form or submit it, and confirm the save prompt appears.</div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="card" style="margin-top: 18px;">
+        <h2>ATS-style application form</h2>
+        <p class="eyebrow" style="margin-top: 8px;">
+          Simulates the kind of job-board markup that hides clean labels and field names.
+        </p>
+
+        <form id="atsDemoForm">
+          <div class="form-grid" style="margin-top: 16px;">
+            <div class="field">
+              <div class="ats-question" data-automation-id="fieldLabel">Email address</div>
+              <input
+                name="candidate.emailAddress"
+                type="email"
+                data-automation-id="emailField"
+                data-field="candidateEmail"
+              >
+            </div>
+
+            <div class="field">
+              <div class="ats-question" data-automation-id="fieldLabel">Phone number</div>
+              <input
+                name="phoneNumber"
+                type="tel"
+                data-automation-id="phoneField"
+                data-testid="phoneNumberInput"
+              >
+            </div>
+
+            <div class="field field--wide">
+              <div class="ats-question" data-automation-id="fieldLabel">LinkedIn profile</div>
+              <input
+                name="candidate.linkedinUrl"
+                type="url"
+                data-ph-at-id="linkedin question"
+                data-qa="linkedin-profile"
+              >
+            </div>
+
+            <div class="field field--wide">
+              <div class="ats-question" data-automation-id="fieldLabel">School / University</div>
+              <input
+                name="education.schoolName"
+                type="text"
+                data-automation-id="schoolField"
+                data-qa="education-school"
+              >
+            </div>
+
+            <div class="field">
+              <div class="ats-question" data-automation-id="fieldLabel">Degree level</div>
+              <select
+                name="education.degreeLevel"
+                data-automation-id="degreeLevelSelect"
+                data-testid="degreeLevelField"
+              >
+                <option value="">Select degree level</option>
+                <option>Bachelor's</option>
+                <option>Master's</option>
+                <option>PhD</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <div class="ats-question" data-automation-id="fieldLabel">Expected graduation</div>
+              <input
+                name="education.expectedGraduationDate"
+                type="text"
+                data-automation-id="graduationField"
+                data-testid="graduationDateInput"
+              >
+            </div>
+          </div>
+        </form>
+      </section>
+
+      <section class="card" style="margin-top: 18px;">
+        <h2>Shadow DOM test</h2>
+        <p class="eyebrow" style="margin-top: 8px;">Closer to how many production apps mount their inputs</p>
+        <shadow-form-demo></shadow-form-demo>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById("demoForm");
+      const submittedMessage = document.getElementById("submittedMessage");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        submittedMessage.classList.add("is-visible");
+      });
+
+      form.addEventListener("reset", () => {
+        submittedMessage.classList.remove("is-visible");
+      });
+
+      class ShadowFormDemo extends HTMLElement {
+        connectedCallback() {
+          const root = this.attachShadow({ mode: "open" });
+          root.innerHTML = `
+            <style>
+              .wrap {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 14px;
+                margin-top: 16px;
+              }
+
+              label {
+                display: block;
+                font-family: "SF Pro Display", "Avenir Next", "Segoe UI", sans-serif;
+              }
+
+              span {
+                display: block;
+                margin-bottom: 8px;
+                font-size: 13px;
+                font-weight: 700;
+                color: #405d79;
+              }
+
+              input {
+                width: 100%;
+                border: 1px solid rgba(16, 35, 61, 0.1);
+                border-radius: 18px;
+                padding: 13px 15px;
+                background: white;
+                color: #10233d;
+                font: inherit;
+                box-sizing: border-box;
+              }
+
+              @media (max-width: 780px) {
+                .wrap {
+                  grid-template-columns: 1fr;
+                }
+              }
+            </style>
+
+            <div class="wrap">
+              <label>
+                <span>Email</span>
+                <input type="email" name="shadowEmail" />
+              </label>
+              <label>
+                <span>LinkedIn profile</span>
+                <input type="url" name="shadowLinkedIn" />
+              </label>
+            </div>
+          `;
+        }
+      }
+
+      customElements.define("shadow-form-demo", ShadowFormDemo);
+    </script>
+  </body>
+</html>

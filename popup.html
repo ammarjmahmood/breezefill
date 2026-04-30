@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BreezeFill</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="popup-shell">
+      <section class="popup-hero">
+        <div class="popup-hero__brand">
+          <img class="popup-hero__mark" src="assets/logo-mark.svg" alt="">
+          <div>
+            <p class="eyebrow">Autofill that feels calm</p>
+            <h1>BreezeFill</h1>
+          </div>
+        </div>
+
+        <label class="toggle">
+          <input id="enabledToggle" type="checkbox">
+          <span class="toggle__track"></span>
+          <span class="toggle__label">Enabled</span>
+        </label>
+      </section>
+
+      <section class="popup-card popup-card--metrics">
+        <div class="metric">
+          <span class="metric__label">Saved responses</span>
+          <strong id="memoryCount">0</strong>
+        </div>
+        <div class="metric">
+          <span class="metric__label">Profile coverage</span>
+          <strong id="profileCount">0/0</strong>
+        </div>
+        <div class="metric">
+          <span class="metric__label">Muted sites</span>
+          <strong id="mutedCount">0</strong>
+        </div>
+      </section>
+
+      <form id="quickProfileForm" class="popup-card popup-card--form">
+        <div class="section-head">
+          <div>
+            <h2>Quick profile</h2>
+            <p>The three fields you use most often.</p>
+          </div>
+          <button type="submit" class="button button--primary">Save</button>
+        </div>
+
+        <label class="field">
+          <span>Full name</span>
+          <input id="fullName" name="fullName" type="text" placeholder="Ammar Mahmood">
+        </label>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="email" name="email" type="email" placeholder="ammar@example.com">
+        </label>
+
+        <label class="field">
+          <span>Phone</span>
+          <input id="phone" name="phone" type="tel" placeholder="+1 555 555 5555">
+        </label>
+      </form>
+
+      <section class="popup-card popup-card--actions">
+        <button id="openOptionsButton" class="button button--secondary" type="button">
+          Open full settings
+        </button>
+        <button id="clearMemoriesButton" class="button button--ghost" type="button">
+          Clear saved responses
+        </button>
+      </section>
+
+      <p id="statusMessage" class="status-message" aria-live="polite"></p>
+    </main>
+
+    <script src="lib/constants.js"></script>
+    <script src="lib/storage.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
