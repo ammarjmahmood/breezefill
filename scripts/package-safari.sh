@@ -58,8 +58,11 @@ CONVERTER_FLAGS=(
   --no-open
   --no-prompt
   --force
-  "${PLATFORM_FLAGS[@]}"
 )
+
+if ((${#PLATFORM_FLAGS[@]})); then
+  CONVERTER_FLAGS+=("${PLATFORM_FLAGS[@]}")
+fi
 
 if [[ "$COPY_RESOURCES" == "1" ]]; then
   CONVERTER_FLAGS+=(--copy-resources)
