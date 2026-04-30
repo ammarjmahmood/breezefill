@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BreezeFill Demo Form</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #eef7ff;
+        --panel: rgba(255, 255, 255, 0.9);
+        --panel-strong: rgba(255, 255, 255, 0.96);
+        --text: #10233d;
+        --muted: #5c7390;
+        --line: rgba(16, 35, 61, 0.1);
+        --primary: #1279ef;
+        --primary-soft: rgba(18, 121, 239, 0.08);
+        --shadow: 0 30px 80px rgba(16, 35, 61, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "SF Pro Display", "Avenir Next", "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top left, rgba(104, 195, 255, 0.42), transparent 28%),
+          radial-gradient(circle at 82% 14%, rgba(83, 161, 255, 0.2), transparent 22%),
+          linear-gradient(180deg, #f9fdff 0%, var(--bg) 100%);
+      }
+
+      .shell {
+        width: min(1360px, calc(100vw - 40px));
+        margin: 24px auto;
+      }
+
+      .hero,
+      .application-card,
+      .notes-card,
+      .submitted {
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(18px);
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 22px 24px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand__mark {
+        width: 46px;
+        height: 46px;
+      }
+
+      .eyebrow {
+        margin: 0 0 6px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #5e7694;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(34px, 5vw, 60px);
+        line-height: 0.94;
+        letter-spacing: -0.06em;
+        max-width: 11ch;
+      }
+
+      h2 {
+        font-size: 28px;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+
+      h3 {
+        font-size: 18px;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-copy p:last-child {
+        margin-top: 14px;
+        max-width: 52ch;
+        color: var(--muted);
+        line-height: 1.65;
+        font-size: 17px;
+      }
+
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hero-badges span {
+        display: inline-flex;
+        align-items: center;
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.84);
+        border: 1px solid rgba(16, 35, 61, 0.08);
+        color: #3f5b79;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.08fr) 320px;
+        gap: 18px;
+        margin-top: 18px;
+      }
+
+      .application-card {
+        padding: 22px;
+        background: var(--panel-strong);
+      }
+
+      .application-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: var(--primary-soft);
+        color: #0f63be;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .application-top p:last-child,
+      .notes-card p,
+      .submitted {
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .field {
+        display: block;
+      }
+
+      .field--wide {
+        grid-column: 1 / -1;
+      }
+
+      .field span {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #3d5a77;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        height: 52px;
+        border: 1px solid rgba(16, 35, 61, 0.1);
+        border-radius: 18px;
+        padding: 0 15px;
+        background: white;
+        color: var(--text);
+        font: inherit;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        outline: none;
+        border-color: rgba(18, 121, 239, 0.44);
+        box-shadow: 0 0 0 4px rgba(18, 121, 239, 0.12);
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      button {
+        appearance: none;
+        border: 0;
+        border-radius: 999px;
+        padding: 12px 16px;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        cursor: pointer;
+      }
+
+      .button-primary {
+        color: white;
+        background: linear-gradient(135deg, #1279ef, #2bb7d3);
+        box-shadow: 0 12px 24px rgba(18, 121, 239, 0.22);
+      }
+
+      .button-ghost {
+        color: #284765;
+        background: rgba(16, 35, 61, 0.06);
+      }
+
+      .notes-card {
+        display: grid;
+        align-content: start;
+        gap: 14px;
+        padding: 22px;
+      }
+
+      .notes-list {
+        display: grid;
+        gap: 12px;
+      }
+
+      .notes-list div {
+        padding: 14px 16px;
+        border-radius: 18px;
+        background: rgba(16, 35, 61, 0.04);
+      }
+
+      .submitted {
+        display: none;
+        margin-top: 16px;
+        padding: 14px 16px;
+        background: rgba(18, 121, 239, 0.08);
+      }
+
+      .submitted.is-visible {
+        display: block;
+      }
+
+      @media (max-width: 1080px) {
+        .layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 820px) {
+        .shell {
+          width: min(100vw - 20px, 100%);
+        }
+
+        .hero,
+        .application-top,
+        .form-grid {
+          grid-template-columns: 1fr;
+          display: grid;
+        }
+
+        .actions {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">BreezeFill Demo</p>
+          <h1>Fill a modern tech application in seconds.</h1>
+          <p>
+            This is a safe demo form built for the video walkthrough. It focuses on the
+            fields people actually repeat all the time: email, phone, links, school, degree,
+            and project details.
+          </p>
+        </div>
+
+        <div class="hero-badges" aria-label="Highlights">
+          <span>No address fields</span>
+          <span>Tech-style application</span>
+          <span>Safe demo data only</span>
+        </div>
+      </section>
+
+      <section class="layout">
+        <section class="application-card">
+          <div class="application-top">
+            <div>
+              <p class="eyebrow">Launch Week Fellowship</p>
+              <h2>Builder application</h2>
+            </div>
+
+            <span class="status-pill">5 minute application</span>
+          </div>
+
+          <form id="demoVideoForm">
+            <div class="form-grid">
+              <label class="field">
+                <span>Email</span>
+                <input name="email" type="email" autocomplete="email" placeholder="you@example.com">
+              </label>
+
+              <label class="field">
+                <span>Phone</span>
+                <input name="phone" type="tel" autocomplete="tel" placeholder="+1 555 555 5555">
+              </label>
+
+              <label class="field">
+                <span>LinkedIn profile</span>
+                <input name="linkedinProfile" type="url" placeholder="https://www.linkedin.com/in/your-name">
+              </label>
+
+              <label class="field">
+                <span>GitHub</span>
+                <input name="github" type="url" placeholder="https://github.com/your-handle">
+              </label>
+
+              <label class="field field--wide">
+                <span>Portfolio website</span>
+                <input name="portfolioWebsite" type="url" placeholder="https://yourportfolio.com">
+              </label>
+
+              <label class="field field--wide">
+                <span>School / University</span>
+                <input name="schoolName" type="text" placeholder="University of Toronto">
+              </label>
+
+              <label class="field">
+                <span>Degree level</span>
+                <select name="degreeLevel">
+                  <option value="">Select degree level</option>
+                  <option>Bachelor's</option>
+                  <option>Master's</option>
+                  <option>PhD</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Expected graduation</span>
+                <input name="graduationInfo" type="text" placeholder="May 2027">
+              </label>
+
+              <label class="field field--wide">
+                <span>Project demo URL</span>
+                <input
+                  name="projectDemoUrl"
+                  type="url"
+                  placeholder="Paste the best project or demo you want reviewers to see"
+                >
+              </label>
+            </div>
+
+            <div class="actions">
+              <button type="submit" class="button-primary">Submit application</button>
+              <button type="reset" class="button-ghost">Reset form</button>
+            </div>
+          </form>
+
+          <div id="submittedMessage" class="submitted">
+            Submitted. BreezeFill should now offer to save the new project URL for next time.
+          </div>
+        </section>
+
+        <aside class="notes-card">
+          <p class="eyebrow">Why this demo works</p>
+          <h3>It mirrors the forms tech people actually fill out.</h3>
+          <p>
+            The extension can shine here without sending fake data to a live service or
+            touching anything sensitive like home address fields.
+          </p>
+
+          <div class="notes-list">
+            <div>Profile-backed fields show calm suggestions the moment the form asks for them.</div>
+            <div>Education and social fields match what internships, fellowships, and applications ask for.</div>
+            <div>The custom project URL demonstrates the save prompt and remembered suggestions.</div>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById("demoVideoForm");
+      const submittedMessage = document.getElementById("submittedMessage");
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        submittedMessage.classList.add("is-visible");
+      });
+
+      form.addEventListener("reset", () => {
+        submittedMessage.classList.remove("is-visible");
+      });
+    </script>
+  </body>
+</html>

@@ -3,8 +3,9 @@ const config = {
   chromeStoreUrl: "",
   // Paste your donation link here later if you want a live support button.
   donationUrl: "",
-  // Paste a Loom, YouTube, or embed-ready video URL here to enable the demo section.
-  demoVideoUrl: "",
+  // This can be a local .mp4/.webm file, a YouTube URL, or a Loom share URL.
+  demoVideoUrl: "./assets/demo/breezefill-demo.mp4",
+  demoPosterUrl: "./assets/demo/breezefill-demo-poster.png",
   githubRepoUrl: "https://github.com/ammarjmahmood/breezefill",
   githubZipUrl: "https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip"
 };
@@ -88,45 +89,79 @@ function setDonationLink() {
   donateNote.textContent = "Donation link coming soon. For now, starring the repo is the easiest way to help.";
 }
 
-function getDemoEmbedUrl(url) {
+function getDemoMedia(url) {
   if (!url) {
-    return "";
+    return null;
+  }
+
+  if (/^(\.?\.?\/|\/).+\.(mp4|webm|mov)$/i.test(url)) {
+    return {
+      kind: "file",
+      src: url
+    };
   }
 
   try {
     const parsed = new URL(url);
+    if (/\.(mp4|webm|mov)$/i.test(parsed.pathname)) {
+      return {
+        kind: "file",
+        src: parsed.toString()
+      };
+    }
 
     if (parsed.hostname.includes("youtu.be")) {
       const videoId = parsed.pathname.split("/").filter(Boolean)[0];
-      return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0` : "";
+      return videoId
+        ? {
+            kind: "embed",
+            src: `https://www.youtube.com/embed/${videoId}?rel=0`
+          }
+        : null;
     }
 
     if (parsed.hostname.includes("youtube.com")) {
       if (parsed.pathname === "/watch") {
         const videoId = parsed.searchParams.get("v");
-        return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0` : "";
+        return videoId
+          ? {
+              kind: "embed",
+              src: `https://www.youtube.com/embed/${videoId}?rel=0`
+            }
+          : null;
       }
 
       if (parsed.pathname.startsWith("/embed/")) {
-        return parsed.toString();
+        return {
+          kind: "embed",
+          src: parsed.toString()
+        };
       }
     }
 
     if (parsed.hostname.includes("loom.com")) {
       if (parsed.pathname.startsWith("/share/")) {
         const videoId = parsed.pathname.split("/").filter(Boolean)[1];
-        return videoId ? `https://www.loom.com/embed/${videoId}` : "";
+        return videoId
+          ? {
+              kind: "embed",
+              src: `https://www.loom.com/embed/${videoId}`
+            }
+          : null;
       }
 
       if (parsed.pathname.startsWith("/embed/")) {
-        return parsed.toString();
+        return {
+          kind: "embed",
+          src: parsed.toString()
+        };
       }
     }
   } catch {
-    return "";
+    return null;
   }
 
-  return "";
+  return null;
 }
 
 function setDemoVideo() {
@@ -134,13 +169,13 @@ function setDemoVideo() {
   const placeholder = document.querySelector("[data-demo-placeholder]");
   const status = document.querySelector("[data-demo-status]");
   const link = document.querySelector("[data-demo-link]");
-  const embedUrl = getDemoEmbedUrl(config.demoVideoUrl);
+  const media = getDemoMedia(config.demoVideoUrl);
 
   if (!stage || !placeholder || !status || !link) {
     return;
   }
 
-  if (!embedUrl) {
+  if (!media) {
     link.removeAttribute("href");
     link.setAttribute("aria-disabled", "true");
     link.classList.add("is-disabled");
@@ -151,15 +186,30 @@ function setDemoVideo() {
 
   placeholder.hidden = true;
 
-  const iframe = document.createElement("iframe");
-  iframe.src = embedUrl;
-  iframe.title = "BreezeFill demo video";
-  iframe.allow =
-    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-  iframe.allowFullscreen = true;
-  iframe.loading = "lazy";
+  if (media.kind === "file") {
+    const video = document.createElement("video");
+    video.src = media.src;
+    video.controls = true;
+    video.autoplay = true;
+    video.muted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    if (config.demoPosterUrl) {
+      video.poster = config.demoPosterUrl;
+    }
+    stage.appendChild(video);
+  } else {
+    const iframe = document.createElement("iframe");
+    iframe.src = media.src;
+    iframe.title = "BreezeFill demo video";
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    iframe.loading = "lazy";
+    stage.appendChild(iframe);
+  }
 
-  stage.appendChild(iframe);
   status.textContent = "Now showing";
   link.href = config.demoVideoUrl;
   link.removeAttribute("aria-disabled");
