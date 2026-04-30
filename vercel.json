@@ -4,7 +4,7 @@
   "rewrites": [
     {
       "source": "/",
-      "destination": "/docs/index.html"
+      "destination": "/docs/"
     },
     {
       "source": "/app.js",
@@ -20,11 +20,11 @@
     },
     {
       "source": "/privacy",
-      "destination": "/docs/privacy/index.html"
+      "destination": "/docs/privacy/"
     },
     {
       "source": "/privacy/",
-      "destination": "/docs/privacy/index.html"
+      "destination": "/docs/privacy/"
     }
   ]
 }
