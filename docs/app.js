@@ -53,7 +53,7 @@ function setInstallLink() {
   }
 
   primaryLink.href = config.githubZipUrl;
-  primaryLink.textContent = "Install from GitHub";
+  primaryLink.textContent = "Download ZIP for Chrome";
 
   if (storeTabLabel) {
     storeTabLabel.textContent = "Chrome Web Store soon";
