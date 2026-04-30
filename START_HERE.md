@@ -4,17 +4,21 @@ This is the easiest possible setup guide for BreezeFill.
 
 ## 1. If you just want to use BreezeFill in Chrome right now
 
-1. Go to the repo on GitHub:
-   `https://github.com/ammarjmahmood/breezefill`
-2. Click `Code` → `Download ZIP`.
-3. Unzip the downloaded file.
-4. Open `chrome://extensions` in Chrome.
-5. Turn on `Developer mode`.
-6. Click `Load unpacked`.
-7. Select the unzipped `breezefill` folder.
-8. Open the BreezeFill extension.
-9. Click `Open full settings`.
-10. Add your name, email, phone, LinkedIn, school, or anything else you want saved.
+Direct download:
+
+[Download the latest BreezeFill ZIP](https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip)
+
+Then:
+
+1. Download the ZIP.
+2. Unzip it.
+3. Open `chrome://extensions` in Chrome.
+4. Turn on `Developer mode`.
+5. Click `Load unpacked`.
+6. Select the unzipped folder you just downloaded. GitHub will usually name it `breezefill-main`.
+7. Open the BreezeFill extension.
+8. Click `Open full settings`.
+9. Add your name, email, phone, LinkedIn, school, or anything else you want saved.
 
 That is it.
 

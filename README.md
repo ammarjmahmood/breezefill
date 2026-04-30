@@ -2,6 +2,10 @@
 
 BreezeFill is a polished browser extension that suggests autofill values while users type and asks whether new form responses should be saved for later.
 
+[Download BreezeFill ZIP](https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip)
+
+Fast install: download the ZIP, unzip it, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the unzipped folder.
+
 ## Start here
 
 If you want the easiest step-by-step version, open [START_HERE.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/START_HERE.md).
@@ -33,12 +37,18 @@ If you want the easiest step-by-step version, open [START_HERE.md](/Users/ammarm
 
 If someone just wants to use BreezeFill in Chrome right now:
 
-1. Download the repo ZIP from GitHub.
+Direct download:
+
+[Download the latest BreezeFill ZIP](https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip)
+
+Then:
+
+1. Download the repo ZIP.
 2. Unzip it.
 3. Open `chrome://extensions`.
 4. Turn on **Developer mode**.
 5. Click **Load unpacked**.
-6. Select the BreezeFill folder.
+6. Select the unzipped folder you just downloaded. GitHub will usually name it `breezefill-main`.
 
 Important:
 
