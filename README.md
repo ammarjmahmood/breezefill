@@ -25,12 +25,21 @@ BreezeFill is a polished browser extension that suggests autofill values while u
 - `scripts/`: Local test server and Safari packaging helpers.
 - `qa/`: Manual QA matrix and release templates.
 
-## Install in Chrome
+## Fast install
 
-1. Open `chrome://extensions`.
-2. Turn on **Developer mode**.
-3. Click **Load unpacked**.
-4. Select this project folder.
+If someone just wants to use BreezeFill in Chrome right now:
+
+1. Download the repo ZIP from GitHub.
+2. Unzip it.
+3. Open `chrome://extensions`.
+4. Turn on **Developer mode**.
+5. Click **Load unpacked**.
+6. Select the BreezeFill folder.
+
+Important:
+
+- no build step is required for install
+- `npm install` is only needed for tests and release tooling
 
 ## Local verification
 
@@ -66,6 +75,9 @@ Then open:
 
 - [http://127.0.0.1:4173/test-form.html](http://127.0.0.1:4173/test-form.html)
 - [http://127.0.0.1:4173/test-form.html?ashby_jid=demo](http://127.0.0.1:4173/test-form.html?ashby_jid=demo)
+- [http://127.0.0.1:4173/docs/](http://127.0.0.1:4173/docs/)
+
+If you only want to preview the launch site and docs locally, `npm run site:preview` uses the same static server.
 
 The second URL activates the application-form adapter path on the local fixture page.
 
@@ -78,6 +90,28 @@ npm run safari:convert
 ```
 
 More details are in [SAFARI.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/SAFARI.md).
+
+## Launch site
+
+This repo includes a GitHub Pages-ready launch site in [docs/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/index.html) plus a hosted privacy page in [docs/privacy/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/privacy/index.html).
+
+To publish it:
+
+1. Push the repo to GitHub.
+2. In GitHub, open `Settings` → `Pages`.
+3. Choose branch `main` and folder `/docs`.
+4. Save.
+
+That gives you a clean public website for launches and a privacy-policy URL for the Chrome Web Store.
+
+## Launch plan
+
+The repo now also includes a practical launch guide in [LAUNCH.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/LAUNCH.md) covering:
+
+- the easiest GitHub install path
+- GitHub Pages setup
+- Chrome Web Store submission
+- Product Hunt launch timing and copy
 
 ## QA target
 

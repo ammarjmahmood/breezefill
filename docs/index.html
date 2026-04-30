@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>BreezeFill | Autofill that feels invisible</title>
+    <meta
+      name="description"
+      content="BreezeFill is a calm browser autofill extension that suggests your details when forms ask for them and remembers new responses only when you say yes."
+    >
+    <link rel="icon" href="./assets/logo-mark.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="orb orb--one"></div>
+    <div class="orb orb--two"></div>
+    <div class="orb orb--three"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="BreezeFill home">
+        <img src="./assets/logo-mark.svg" alt="" class="brand__mark">
+        <div>
+          <p class="eyebrow">Calm Browser Autofill</p>
+          <strong>BreezeFill</strong>
+        </div>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#faq">FAQ</a>
+        <a href="./privacy/">Privacy</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal">
+        <div class="hero__copy">
+          <p class="eyebrow">Autofill that feels invisible</p>
+          <h1>Forms should feel effortless, not repetitive.</h1>
+          <p class="hero__body">
+            BreezeFill quietly suggests your name, email, phone, links, and education
+            details right when a form asks for them. When you type something new, it can
+            remember it next time only if you want it to.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" data-install-link href="https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip">
+              Install BreezeFill
+            </a>
+            <a class="button button--secondary" href="https://github.com/ammarjmahmood/breezefill" target="_blank" rel="noreferrer">
+              View GitHub
+            </a>
+          </div>
+
+          <p class="hero__note">
+            No build step for install. Download the repo, load it unpacked in Chrome, and
+            you’re in.
+          </p>
+
+          <div class="hero__pills" aria-label="Highlights">
+            <span>Local browser storage</span>
+            <span>Quiet save prompts</span>
+            <span>Works on job applications</span>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="glass-card">
+            <div class="glass-card__top">
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+            </div>
+            <img
+              src="./assets/screens/02-autofill-suggestion-1280x800.png"
+              alt="BreezeFill suggestion menu shown in a form field"
+              class="hero-shot"
+            >
+          </div>
+
+          <div class="floating-note floating-note--one">
+            <strong>Autofill</strong>
+            <span>Shows only the most likely suggestion.</span>
+          </div>
+
+          <div class="floating-note floating-note--two">
+            <strong>Save only when asked</strong>
+            <span>No surprise memory. No noisy dropdowns.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats reveal">
+        <article class="stat-card">
+          <span>4</span>
+          <p>Store screenshots generated from the actual extension experience.</p>
+        </article>
+        <article class="stat-card">
+          <span>10+</span>
+          <p>Application platform adapters ready for job and internship forms.</p>
+        </article>
+        <article class="stat-card">
+          <span>3</span>
+          <p>End-to-end browser tests covering suggestions, saves, and ATS markup.</p>
+        </article>
+      </section>
+
+      <section id="features" class="section reveal">
+        <div class="section-head">
+          <p class="eyebrow">Why it feels better</p>
+          <h2>The point is to disappear into your flow.</h2>
+          <p>
+            BreezeFill is built to feel more like a native convenience than a browser tool
+            yelling for attention.
+          </p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Quiet suggestions</h3>
+            <p>
+              Common fields like email, phone, name, LinkedIn, and school surface a compact,
+              calm suggestion instead of a giant menu.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Save only with consent</h3>
+            <p>
+              New values are offered back to you after the form interaction, not captured
+              invisibly while you type.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Modern form support</h3>
+            <p>
+              Works across iframes, open shadow DOM, native selects, and a growing adapter
+              layer for real job application platforms.
+            </p>
+          </article>
+          <article class="feature-card">
+            <h3>Local by default</h3>
+            <p>
+              Profile values, remembered responses, and muted sites stay inside browser
+              extension storage instead of being pushed to a BreezeFill backend.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section gallery reveal">
+        <div class="section-head section-head--tight">
+          <p class="eyebrow">What it looks like</p>
+          <h2>The real extension, not mockups.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="shot shot--large">
+            <img src="./assets/screens/01-options-overview-1280x800.png" alt="BreezeFill settings page">
+            <figcaption>Profile, education, and saved-response management.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/screens/02-autofill-suggestion-1280x800.png" alt="Autofill suggestion on a form">
+            <figcaption>Suggestions land right where the form asks.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/screens/03-save-prompt-1280x800.png" alt="Save prompt on form submission">
+            <figcaption>Save prompts wait until you’re basically done.</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="./assets/screens/04-application-fields-1280x800.png" alt="Application form field suggestions">
+            <figcaption>Built to handle internship and job applications too.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="install" class="section install reveal">
+        <div class="section-head">
+          <p class="eyebrow">Install in minutes</p>
+          <h2>Two easy ways to get BreezeFill into Chrome.</h2>
+          <p>
+            Use the GitHub version today, then switch the primary button to your Chrome Web
+            Store link once the listing is live.
+          </p>
+        </div>
+
+        <div class="install-shell">
+          <div class="tab-row" role="tablist" aria-label="Install methods">
+            <button class="tab-button is-active" type="button" data-tab="github" role="tab" aria-selected="true">
+              Install from GitHub
+            </button>
+            <button class="tab-button" type="button" data-tab="store" role="tab" aria-selected="false">
+              Install from Chrome Web Store
+            </button>
+            <button class="tab-button" type="button" data-tab="developer" role="tab" aria-selected="false">
+              Run as a developer
+            </button>
+          </div>
+
+          <div class="tab-panel is-active" data-panel="github" role="tabpanel">
+            <ol class="steps">
+              <li>Download the repo ZIP from GitHub.</li>
+              <li>Unzip it anywhere on your machine.</li>
+              <li>Open `chrome://extensions` in Chrome.</li>
+              <li>Turn on `Developer mode` in the top right.</li>
+              <li>Click `Load unpacked` and choose the unzipped BreezeFill folder.</li>
+              <li>Open the extension settings, add your profile, and you’re ready.</li>
+            </ol>
+            <div class="callout">
+              <strong>Fastest link:</strong>
+              <a href="https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip" target="_blank" rel="noreferrer">
+                github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip
+              </a>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="store" role="tabpanel" hidden>
+            <ol class="steps">
+              <li>Open your Chrome Web Store listing.</li>
+              <li>Click `Add to Chrome`.</li>
+              <li>Pin BreezeFill if you want fast access to the popup.</li>
+              <li>Open BreezeFill, add your details, and start using it immediately.</li>
+            </ol>
+            <div class="callout callout--soft">
+              <strong>Before launch:</strong> update the install button in <code>docs/app.js</code>
+              with your Chrome Web Store URL so this tab becomes the default path.
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="developer" role="tabpanel" hidden>
+            <ol class="steps">
+              <li>Clone the repo: <code>git clone https://github.com/ammarjmahmood/breezefill.git</code></li>
+              <li>Open the project folder. There is no build step required to install the extension.</li>
+              <li>Optional: run <code>npm install</code> if you want the test tooling.</li>
+              <li>Optional: run <code>npm run test:e2e</code> to verify the extension locally.</li>
+              <li>Open `chrome://extensions`, turn on `Developer mode`, and click `Load unpacked`.</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shipping reveal">
+        <div class="shipping__card">
+          <div>
+            <p class="eyebrow">Ship it well</p>
+            <h2>Built for a clean Product Hunt launch path too.</h2>
+            <p>
+              The repo already includes Chrome packaging, store screenshots, promo art,
+              review notes, and a privacy policy. Pair this launch site with the Chrome Web
+              Store listing and you have a much stronger public launch surface.
+            </p>
+          </div>
+
+          <div class="shipping__actions">
+            <a class="button button--primary" href="https://github.com/ammarjmahmood/breezefill" target="_blank" rel="noreferrer">
+              Open the repo
+            </a>
+            <a class="button button--ghost" href="./privacy/">
+              Privacy policy
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq reveal">
+        <div class="section-head section-head--tight">
+          <p class="eyebrow">FAQ</p>
+          <h2>Things people usually want to know first.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details open>
+            <summary>Does BreezeFill send my saved form data to a server?</summary>
+            <p>
+              No. The current build stores profile values, remembered responses, and muted-site
+              settings locally in browser extension storage.
+            </p>
+          </details>
+          <details>
+            <summary>Can it work on job application websites?</summary>
+            <p>
+              Yes. BreezeFill includes a shared adapter layer for major application platforms
+              and broader matching for the weird field names those sites often use.
+            </p>
+          </details>
+          <details>
+            <summary>Do I need to run a build command before loading it into Chrome?</summary>
+            <p>
+              No. For install, you only need the repo contents. <code>npm install</code> is
+              only for tests, screenshots, and packaging scripts.
+            </p>
+          </details>
+          <details>
+            <summary>What should I use for the Chrome Web Store privacy-policy URL?</summary>
+            <p>
+              Publish this site with GitHub Pages and use the hosted <code>/privacy/</code> page
+              as the public policy URL.
+            </p>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>BreezeFill</strong>
+        <p>Autofill that feels calm, local, and almost invisible.</p>
+      </div>
+
+      <div class="site-footer__links">
+        <a href="https://github.com/ammarjmahmood/breezefill" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="./privacy/">Privacy</a>
+        <a href="#install">Install</a>
+      </div>
+    </footer>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

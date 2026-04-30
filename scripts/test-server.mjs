@@ -41,8 +41,13 @@ function resolveFilePath(urlPathname) {
 
 const server = http.createServer(async (request, response) => {
   try {
-    const filePath = resolveFilePath(request.url || "/");
-    const stat = await fs.stat(filePath);
+    let filePath = resolveFilePath(request.url || "/");
+    let stat = await fs.stat(filePath);
+
+    if (stat.isDirectory()) {
+      filePath = path.join(filePath, "index.html");
+      stat = await fs.stat(filePath);
+    }
 
     if (!stat.isFile()) {
       response.writeHead(404, { "content-type": "text/plain; charset=utf-8" });
