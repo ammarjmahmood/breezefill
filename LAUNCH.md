@@ -1,5 +1,7 @@
 # BreezeFill Launch Guide
 
+If you want the shortest, most beginner-friendly version, open [START_HERE.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/START_HERE.md) first.
+
 ## 1. Make the repo easy for anyone to install
 
 The easiest path right now is:
@@ -63,6 +65,23 @@ Use the privacy page URL:
 - `https://your-vercel-domain/privacy`
 
 for the Chrome Web Store privacy-policy field.
+
+## 3B. If you want GitHub Pages instead
+
+Vercel is the cleaner launch path now, but GitHub Pages still works.
+
+1. Open the GitHub repo.
+2. Go to `Settings`.
+3. Open `Pages`.
+4. Choose `Deploy from a branch`.
+5. Select branch `main`.
+6. Select folder `/docs`.
+7. Save.
+
+Your URLs will be:
+
+- `https://ammarjmahmood.github.io/breezefill/`
+- `https://ammarjmahmood.github.io/breezefill/privacy/`
 
 ## 4. Put it on the Chrome Web Store
 

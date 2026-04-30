@@ -1,4 +1,5 @@
 const config = {
+  // Paste your real Chrome Web Store URL here after the listing is live.
   chromeStoreUrl: "",
   githubRepoUrl: "https://github.com/ammarjmahmood/breezefill",
   githubZipUrl: "https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip"

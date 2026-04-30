@@ -2,6 +2,10 @@
 
 BreezeFill is a polished browser extension that suggests autofill values while users type and asks whether new form responses should be saved for later.
 
+## Start here
+
+If you want the easiest step-by-step version, open [START_HERE.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/START_HERE.md).
+
 ## What it does
 
 - Suggests autofill responses on text-like form fields.
@@ -113,6 +117,7 @@ The repo now also includes a practical launch guide in [LAUNCH.md](/Users/ammarm
 
 - the easiest GitHub install path
 - Vercel deployment
+- GitHub Pages as a fallback option
 - Chrome Web Store submission
 - Product Hunt launch timing and copy
 
