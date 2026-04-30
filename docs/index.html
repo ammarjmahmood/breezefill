@@ -40,6 +40,7 @@
       </a>
 
       <nav class="site-nav" aria-label="Primary">
+        <a href="#demo">Demo</a>
         <a href="#features">Features</a>
         <a href="#use-cases">Use cases</a>
         <a href="#install">Install</a>
@@ -122,6 +123,67 @@
           <span>3</span>
           <p>End-to-end browser tests covering suggestions, saves, and ATS markup.</p>
         </article>
+      </section>
+
+      <section id="demo" class="section demo reveal">
+        <div class="section-head">
+          <p class="eyebrow">See it in action</p>
+          <h2>A clean place for the real BreezeFill walkthrough.</h2>
+          <p>
+            Show the exact moment BreezeFill recognizes a field, suggests the right detail,
+            and asks to save a new answer without taking over the page.
+          </p>
+        </div>
+
+        <div class="demo-shell">
+          <div class="demo-stage" data-demo-stage>
+            <div class="demo-placeholder" data-demo-placeholder>
+              <img
+                src="./assets/screens/04-application-fields-1280x800.png"
+                alt="Preview area for the BreezeFill demo video"
+              >
+              <div class="demo-placeholder__overlay">
+                <span class="status-pill">Demo area</span>
+                <strong>Full walkthrough coming soon</strong>
+                <p>
+                  Add a Loom or YouTube link in the site config and this becomes a live
+                  embedded demo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="demo-copy">
+            <span class="status-pill" data-demo-status>Coming soon</span>
+            <h3>Built to show the whole flow in one calm clip.</h3>
+            <p>
+              This section is ready for a short product demo that covers profile setup,
+              autofill suggestions, and the save prompt on a real form.
+            </p>
+
+            <div class="demo-points">
+              <article class="demo-point">
+                <strong>Recognize</strong>
+                <span>Email, phone, links, and education fields map automatically.</span>
+              </article>
+              <article class="demo-point">
+                <strong>Suggest</strong>
+                <span>The UI stays compact so it feels closer to a native hint than a popup.</span>
+              </article>
+              <article class="demo-point">
+                <strong>Remember</strong>
+                <span>New responses only get saved when the user actually says yes.</span>
+              </article>
+            </div>
+
+            <div class="demo-actions">
+              <a class="button button--secondary" href="#install">Install now</a>
+              <a class="button button--ghost" data-demo-link href="#demo" aria-disabled="true">
+                Demo coming soon
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section id="use-cases" class="section use-cases reveal">
@@ -258,10 +320,10 @@
       <section id="install" class="section install reveal">
         <div class="section-head">
           <p class="eyebrow">Install in minutes</p>
-          <h2>Two easy ways to get BreezeFill into Chrome.</h2>
+          <h2>Install from GitHub now, then switch to the Chrome Web Store later.</h2>
           <p>
-            Use the GitHub version today, then switch the primary button to your Chrome Web
-            Store link once the listing is live.
+            The GitHub install is live today. The Chrome Web Store path is already planned
+            into the page and can switch on the moment the listing exists.
           </p>
         </div>
 
@@ -271,7 +333,7 @@
               Install from GitHub
             </button>
             <button class="tab-button" type="button" data-tab="store" role="tab" aria-selected="false">
-              Install from Chrome Web Store
+              <span data-store-tab-label>Chrome Web Store soon</span>
             </button>
             <button class="tab-button" type="button" data-tab="developer" role="tab" aria-selected="false">
               Run as a developer
@@ -296,15 +358,30 @@
           </div>
 
           <div class="tab-panel" data-panel="store" role="tabpanel" hidden>
-            <ol class="steps">
-              <li>Open your Chrome Web Store listing.</li>
-              <li>Click `Add to Chrome`.</li>
-              <li>Pin BreezeFill if you want fast access to the popup.</li>
-              <li>Open BreezeFill, add your details, and start using it immediately.</li>
-            </ol>
-            <div class="callout callout--soft">
-              <strong>Before launch:</strong> update the install button in <code>docs/app.js</code>
-              with your Chrome Web Store URL so this tab becomes the default path.
+            <div class="store-state" data-store-state="soon">
+              <span class="status-pill">Coming soon</span>
+              <h3>Chrome Web Store release is not live yet.</h3>
+              <p>
+                For now, the smoothest path is the GitHub install above. As soon as the
+                listing is approved, this tab and the main install button can switch over.
+              </p>
+              <div class="callout callout--soft">
+                <strong>For now:</strong> install from GitHub in about a minute, then move
+                to the store when it goes live.
+              </div>
+            </div>
+
+            <div class="store-state" data-store-state="live" hidden>
+              <ol class="steps">
+                <li>Open the Chrome Web Store listing.</li>
+                <li>Click `Add to Chrome`.</li>
+                <li>Pin BreezeFill if you want fast access to the popup.</li>
+                <li>Open BreezeFill, add your details, and start using it immediately.</li>
+              </ol>
+              <div class="callout callout--soft">
+                <strong>Live now:</strong> once the store URL is added in <code>docs/app.js</code>,
+                this panel becomes the default install path automatically.
+              </div>
             </div>
           </div>
 
@@ -317,6 +394,33 @@
               <li>Open `chrome://extensions`, turn on `Developer mode`, and click `Load unpacked`.</li>
             </ol>
           </div>
+        </div>
+      </section>
+
+      <section id="support" class="section support reveal">
+        <div class="support-card">
+          <div>
+            <p class="eyebrow">Support BreezeFill</p>
+            <h2>Make room for donations without making the page feel salesy.</h2>
+            <p>
+              If BreezeFill saves people real time, this section is ready for a simple
+              support link. Until that is live, the page can be honest about it and still
+              feel intentional.
+            </p>
+          </div>
+
+          <div class="support-actions">
+            <a class="button button--primary" data-donate-link href="#support" aria-disabled="true">
+              Donate soon
+            </a>
+            <a class="button button--ghost" href="https://github.com/ammarjmahmood/breezefill" target="_blank" rel="noreferrer">
+              Star on GitHub
+            </a>
+          </div>
+
+          <p class="support-note" data-donate-note>
+            Donation link coming soon. For now, starring the repo is the easiest way to help.
+          </p>
         </div>
       </section>
 
@@ -414,6 +518,7 @@
       </div>
 
       <div class="site-footer__links">
+        <a href="#demo">Demo</a>
         <a href="https://github.com/ammarjmahmood/breezefill" target="_blank" rel="noreferrer">GitHub</a>
         <a href="./privacy/">Privacy</a>
         <a href="#install">Install</a>

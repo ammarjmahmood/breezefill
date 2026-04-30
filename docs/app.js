@@ -1,6 +1,10 @@
 const config = {
   // Paste your real Chrome Web Store URL here after the listing is live.
   chromeStoreUrl: "",
+  // Paste your donation link here later if you want a live support button.
+  donationUrl: "",
+  // Paste a Loom, YouTube, or embed-ready video URL here to enable the demo section.
+  demoVideoUrl: "",
   githubRepoUrl: "https://github.com/ammarjmahmood/breezefill",
   githubZipUrl: "https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip"
 };
@@ -8,9 +12,12 @@ const config = {
 function setInstallLink() {
   const primaryLink = document.querySelector("[data-install-link]");
   const storeTab = document.querySelector('[data-tab="store"]');
+  const storeTabLabel = document.querySelector("[data-store-tab-label]");
   const githubTab = document.querySelector('[data-tab="github"]');
   const storePanel = document.querySelector('[data-panel="store"]');
   const githubPanel = document.querySelector('[data-panel="github"]');
+  const storeSoonState = document.querySelector('[data-store-state="soon"]');
+  const storeLiveState = document.querySelector('[data-store-state="live"]');
 
   if (!primaryLink) {
     return;
@@ -19,6 +26,14 @@ function setInstallLink() {
   if (config.chromeStoreUrl) {
     primaryLink.href = config.chromeStoreUrl;
     primaryLink.textContent = "Add to Chrome";
+    if (storeTabLabel) {
+      storeTabLabel.textContent = "Install from Chrome Web Store";
+    }
+
+    if (storeSoonState && storeLiveState) {
+      storeSoonState.hidden = true;
+      storeLiveState.hidden = false;
+    }
 
     if (storeTab && githubTab && storePanel && githubPanel) {
       storeTab.classList.add("is-active");
@@ -36,6 +51,122 @@ function setInstallLink() {
 
   primaryLink.href = config.githubZipUrl;
   primaryLink.textContent = "Install from GitHub";
+
+  if (storeTabLabel) {
+    storeTabLabel.textContent = "Chrome Web Store soon";
+  }
+
+  if (storeSoonState && storeLiveState) {
+    storeSoonState.hidden = false;
+    storeLiveState.hidden = true;
+  }
+}
+
+function setDonationLink() {
+  const donateLink = document.querySelector("[data-donate-link]");
+  const donateNote = document.querySelector("[data-donate-note]");
+
+  if (!donateLink || !donateNote) {
+    return;
+  }
+
+  if (config.donationUrl) {
+    donateLink.href = config.donationUrl;
+    donateLink.removeAttribute("aria-disabled");
+    donateLink.classList.remove("is-disabled");
+    donateLink.target = "_blank";
+    donateLink.rel = "noreferrer";
+    donateLink.textContent = "Buy me a coffee";
+    donateNote.textContent = "Support helps cover store fees, testing, and future polish.";
+    return;
+  }
+
+  donateLink.removeAttribute("href");
+  donateLink.setAttribute("aria-disabled", "true");
+  donateLink.classList.add("is-disabled");
+  donateLink.textContent = "Donate soon";
+  donateNote.textContent = "Donation link coming soon. For now, starring the repo is the easiest way to help.";
+}
+
+function getDemoEmbedUrl(url) {
+  if (!url) {
+    return "";
+  }
+
+  try {
+    const parsed = new URL(url);
+
+    if (parsed.hostname.includes("youtu.be")) {
+      const videoId = parsed.pathname.split("/").filter(Boolean)[0];
+      return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0` : "";
+    }
+
+    if (parsed.hostname.includes("youtube.com")) {
+      if (parsed.pathname === "/watch") {
+        const videoId = parsed.searchParams.get("v");
+        return videoId ? `https://www.youtube.com/embed/${videoId}?rel=0` : "";
+      }
+
+      if (parsed.pathname.startsWith("/embed/")) {
+        return parsed.toString();
+      }
+    }
+
+    if (parsed.hostname.includes("loom.com")) {
+      if (parsed.pathname.startsWith("/share/")) {
+        const videoId = parsed.pathname.split("/").filter(Boolean)[1];
+        return videoId ? `https://www.loom.com/embed/${videoId}` : "";
+      }
+
+      if (parsed.pathname.startsWith("/embed/")) {
+        return parsed.toString();
+      }
+    }
+  } catch {
+    return "";
+  }
+
+  return "";
+}
+
+function setDemoVideo() {
+  const stage = document.querySelector("[data-demo-stage]");
+  const placeholder = document.querySelector("[data-demo-placeholder]");
+  const status = document.querySelector("[data-demo-status]");
+  const link = document.querySelector("[data-demo-link]");
+  const embedUrl = getDemoEmbedUrl(config.demoVideoUrl);
+
+  if (!stage || !placeholder || !status || !link) {
+    return;
+  }
+
+  if (!embedUrl) {
+    link.removeAttribute("href");
+    link.setAttribute("aria-disabled", "true");
+    link.classList.add("is-disabled");
+    link.textContent = "Demo coming soon";
+    status.textContent = "Coming soon";
+    return;
+  }
+
+  placeholder.hidden = true;
+
+  const iframe = document.createElement("iframe");
+  iframe.src = embedUrl;
+  iframe.title = "BreezeFill demo video";
+  iframe.allow =
+    "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.allowFullscreen = true;
+  iframe.loading = "lazy";
+
+  stage.appendChild(iframe);
+  status.textContent = "Now showing";
+  link.href = config.demoVideoUrl;
+  link.removeAttribute("aria-disabled");
+  link.classList.remove("is-disabled");
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  link.textContent = "Watch full demo";
 }
 
 function initTabs() {
@@ -91,5 +222,7 @@ function initReveal() {
 }
 
 setInstallLink();
+setDonationLink();
+setDemoVideo();
 initTabs();
 initReveal();
