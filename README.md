@@ -93,23 +93,26 @@ More details are in [SAFARI.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/o
 
 ## Launch site
 
-This repo includes a GitHub Pages-ready launch site in [docs/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/index.html) plus a hosted privacy page in [docs/privacy/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/privacy/index.html).
+This repo includes a Vercel-ready launch site in [docs/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/index.html) plus a hosted privacy page in [docs/privacy/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/privacy/index.html).
 
-To publish it:
+It is now also Vercel-ready through [vercel.json](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/vercel.json).
+
+Fastest deployment path:
 
 1. Push the repo to GitHub.
-2. In GitHub, open `Settings` → `Pages`.
-3. Choose branch `main` and folder `/docs`.
-4. Save.
+2. Import the repo into Vercel.
+3. Keep the repo root as the project root.
+4. Do not add a build command.
+5. Deploy.
 
-That gives you a clean public website for launches and a privacy-policy URL for the Chrome Web Store.
+That gives you a clean public website for launches and a privacy-policy URL for the Chrome Web Store at `/privacy`.
 
 ## Launch plan
 
 The repo now also includes a practical launch guide in [LAUNCH.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/LAUNCH.md) covering:
 
 - the easiest GitHub install path
-- GitHub Pages setup
+- Vercel deployment
 - Chrome Web Store submission
 - Product Hunt launch timing and copy
 

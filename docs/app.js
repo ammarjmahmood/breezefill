@@ -6,6 +6,10 @@ const config = {
 
 function setInstallLink() {
   const primaryLink = document.querySelector("[data-install-link]");
+  const storeTab = document.querySelector('[data-tab="store"]');
+  const githubTab = document.querySelector('[data-tab="github"]');
+  const storePanel = document.querySelector('[data-panel="store"]');
+  const githubPanel = document.querySelector('[data-panel="github"]');
 
   if (!primaryLink) {
     return;
@@ -14,6 +18,18 @@ function setInstallLink() {
   if (config.chromeStoreUrl) {
     primaryLink.href = config.chromeStoreUrl;
     primaryLink.textContent = "Add to Chrome";
+
+    if (storeTab && githubTab && storePanel && githubPanel) {
+      storeTab.classList.add("is-active");
+      storeTab.setAttribute("aria-selected", "true");
+      githubTab.classList.remove("is-active");
+      githubTab.setAttribute("aria-selected", "false");
+      storePanel.hidden = false;
+      storePanel.classList.add("is-active");
+      githubPanel.hidden = true;
+      githubPanel.classList.remove("is-active");
+    }
+
     return;
   }
 

@@ -144,6 +144,12 @@ main,
   color: #36506c;
   font-size: 14px;
   font-weight: 700;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.site-nav a:hover,
+.site-footer__links a:hover {
+  color: #173251;
 }
 
 main {
@@ -240,6 +246,11 @@ h3 {
   background: rgba(255, 255, 255, 0.78);
   border: 1px solid rgba(16, 35, 61, 0.08);
   box-shadow: var(--shadow-soft);
+}
+
+.button--secondary:hover,
+.button--ghost:hover {
+  background: rgba(255, 255, 255, 0.96);
 }
 
 .hero__note {
@@ -360,6 +371,25 @@ h3 {
   padding: 22px;
 }
 
+.stat-card,
+.feature-card,
+.shot,
+.use-case-card,
+.rhythm-step,
+.launch-pill {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.stat-card:hover,
+.feature-card:hover,
+.shot:hover,
+.use-case-card:hover,
+.rhythm-step:hover,
+.launch-pill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 24px 52px rgba(16, 35, 61, 0.14);
+}
+
 .stat-card span {
   display: block;
   font-size: 40px;
@@ -388,6 +418,59 @@ h3 {
 
 .section-head p {
   max-width: 700px;
+}
+
+.use-cases {
+  position: relative;
+}
+
+.use-case-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr 1fr;
+  gap: 16px;
+}
+
+.use-case-card {
+  min-height: 240px;
+  padding: 24px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(16, 35, 61, 0.08);
+  box-shadow: var(--shadow);
+}
+
+.use-case-card--blue {
+  background:
+    radial-gradient(circle at top left, rgba(172, 226, 255, 0.75), transparent 42%),
+    linear-gradient(160deg, rgba(240, 249, 255, 0.98), rgba(225, 241, 255, 0.95));
+}
+
+.use-case-card--white {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.use-case-card--glass {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(241, 249, 255, 0.88));
+  backdrop-filter: blur(18px);
+}
+
+.use-case-card__eyebrow {
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #34506d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.use-case-card p {
+  margin-top: 10px;
+  color: var(--muted);
+  line-height: 1.65;
 }
 
 .feature-grid {
@@ -503,6 +586,32 @@ h3 {
   background: rgba(15, 125, 240, 0.06);
 }
 
+.rhythm-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.rhythm-step {
+  padding: 22px;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(16, 35, 61, 0.08);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: var(--shadow-soft);
+}
+
+.rhythm-step span {
+  display: block;
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -0.08em;
+  color: rgba(15, 125, 240, 0.74);
+}
+
+.rhythm-step p {
+  margin-top: 10px;
+}
+
 .shipping__card {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -534,6 +643,46 @@ h3 {
 
 .faq-list p {
   margin-top: 10px;
+}
+
+.launch-card__shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 18px;
+  padding: 24px;
+  border-radius: calc(var(--radius-xl) + 6px);
+  border: 1px solid rgba(16, 35, 61, 0.08);
+  background:
+    radial-gradient(circle at top left, rgba(170, 228, 255, 0.4), transparent 34%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(241, 249, 255, 0.92));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(20px);
+}
+
+.launch-card__stack {
+  display: grid;
+  gap: 14px;
+}
+
+.launch-pill {
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid rgba(16, 35, 61, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: var(--shadow-soft);
+}
+
+.launch-pill strong {
+  display: block;
+  font-size: 16px;
+  letter-spacing: -0.03em;
+}
+
+.launch-pill span {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .site-footer {
@@ -568,7 +717,8 @@ h3 {
 
 @media (max-width: 1100px) {
   .hero,
-  .shipping__card {
+  .shipping__card,
+  .launch-card__shell {
     grid-template-columns: 1fr;
   }
 
@@ -593,6 +743,11 @@ h3 {
   .shot--large {
     grid-column: 1 / -1;
     grid-row: auto;
+  }
+
+  .use-case-grid,
+  .rhythm-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -619,7 +774,9 @@ h3 {
   .hero,
   .stats,
   .feature-grid,
-  .gallery-grid {
+  .gallery-grid,
+  .use-case-grid,
+  .rhythm-grid {
     grid-template-columns: 1fr;
   }
 

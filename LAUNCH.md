@@ -29,24 +29,28 @@ Put this in the repo description and website:
 6. Select the BreezeFill folder.
 7. Open BreezeFill settings and add your profile.
 
-## 3. Turn the repo into a live website
+## 3. Turn the repo into a live website on Vercel
 
 This repo now includes a launch site in [docs/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/index.html) and a hosted privacy page in [docs/privacy/index.html](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/privacy/index.html).
 
-To publish it with GitHub Pages:
+The repo now also includes [vercel.json](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/vercel.json), which makes Vercel serve:
 
-1. Open the `breezefill` repo on GitHub.
-2. Go to `Settings`.
-3. Open `Pages`.
-4. Under `Build and deployment`, choose `Deploy from a branch`.
-5. Select branch `main`.
-6. Select folder `/docs`.
-7. Save.
-8. Wait for GitHub to publish the site.
+- `/` → the launch homepage
+- `/privacy` → the hosted privacy policy
+- `/assets/*` → the marketing assets and screenshots
 
-Once that’s live, you’ll get a URL like:
+To publish it on Vercel:
 
-- `https://ammarjmahmood.github.io/breezefill/`
+1. Go to the Vercel dashboard.
+2. Click `Add New...` → `Project`.
+3. Import `ammarjmahmood/breezefill` from GitHub.
+4. Keep the root directory as the repo root.
+5. Do not add a build command. This site is static.
+6. Deploy.
+
+Once that’s live, you’ll get a Vercel URL like:
+
+- `https://breezefill.vercel.app/`
 
 Use that as:
 
@@ -56,7 +60,7 @@ Use that as:
 
 Use the privacy page URL:
 
-- `https://ammarjmahmood.github.io/breezefill/privacy/`
+- `https://your-vercel-domain/privacy`
 
 for the Chrome Web Store privacy-policy field.
 
@@ -78,7 +82,7 @@ Upload flow:
 4. Paste the copy from [store/chrome/listing.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/store/chrome/listing.md).
 5. Upload the screenshots from [store/chrome/screenshots](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/store/chrome/screenshots).
 6. Upload the promo tile from [store/chrome/promo](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/store/chrome/promo).
-7. Use the privacy policy URL from the GitHub Pages site.
+7. Use the privacy policy URL from the Vercel site.
 8. Use [store/chrome/review-notes.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/store/chrome/review-notes.md) for reviewer notes and permission justifications.
 
 ## 5. Best way to ship this on Product Hunt
@@ -97,11 +101,11 @@ Official sources:
 
 Recommended BreezeFill launch sequence:
 
-1. Make the GitHub Pages site live first.
+1. Make the Vercel launch site live first.
 2. Make the Chrome Web Store listing live or at least under review with the final URL ready.
 3. Update the install button in [docs/app.js](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/docs/app.js) with the real Chrome Web Store link.
 4. Schedule the Product Hunt launch for a day you can be online and responsive the whole time.
-5. Use the GitHub Pages homepage as the Product Hunt website link.
+5. Use the Vercel homepage as the Product Hunt website link.
 6. Use the real extension screenshots as your gallery.
 7. Be ready with a thoughtful first comment that explains why you built it and who it’s for.
 
@@ -143,4 +147,4 @@ npm run release:chrome
 ```
 
 4. Push the updated repo.
-5. Confirm the GitHub Pages site still looks correct after deployment.
+5. Confirm the Vercel site still looks correct after deployment.

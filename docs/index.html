@@ -8,6 +8,20 @@
       name="description"
       content="BreezeFill is a calm browser autofill extension that suggests your details when forms ask for them and remembers new responses only when you say yes."
     >
+    <meta property="og:title" content="BreezeFill | Autofill that feels invisible">
+    <meta
+      property="og:description"
+      content="A calm browser autofill extension that suggests your details and remembers new responses only when you say yes."
+    >
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="./assets/promo/breezefill-small-promo-440x280.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BreezeFill | Autofill that feels invisible">
+    <meta
+      name="twitter:description"
+      content="A calm browser autofill extension that suggests your details and remembers new responses only when you say yes."
+    >
+    <meta name="twitter:image" content="./assets/promo/breezefill-small-promo-440x280.png">
     <link rel="icon" href="./assets/logo-mark.svg" type="image/svg+xml">
     <link rel="stylesheet" href="./styles.css">
   </head>
@@ -27,6 +41,7 @@
 
       <nav class="site-nav" aria-label="Primary">
         <a href="#features">Features</a>
+        <a href="#use-cases">Use cases</a>
         <a href="#install">Install</a>
         <a href="#faq">FAQ</a>
         <a href="./privacy/">Privacy</a>
@@ -47,6 +62,9 @@
           <div class="hero__actions">
             <a class="button button--primary" data-install-link href="https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip">
               Install BreezeFill
+            </a>
+            <a class="button button--secondary" href="#install">
+              See install steps
             </a>
             <a class="button button--secondary" href="https://github.com/ammarjmahmood/breezefill" target="_blank" rel="noreferrer">
               View GitHub
@@ -106,6 +124,44 @@
         </article>
       </section>
 
+      <section id="use-cases" class="section use-cases reveal">
+        <div class="section-head">
+          <p class="eyebrow">Built for real forms</p>
+          <h2>Not just a demo dropdown on a clean page.</h2>
+          <p>
+            BreezeFill is designed for the places people actually lose time: internship
+            applications, profile setup, and the endless repeat of contact details.
+          </p>
+        </div>
+
+        <div class="use-case-grid">
+          <article class="use-case-card use-case-card--blue">
+            <span class="use-case-card__eyebrow">Applications</span>
+            <h3>Internships, jobs, and scholarship forms</h3>
+            <p>
+              LinkedIn, GitHub, portfolio, school, degree, program, graduation, and all the
+              little details that show up again and again.
+            </p>
+          </article>
+          <article class="use-case-card use-case-card--white">
+            <span class="use-case-card__eyebrow">Accounts</span>
+            <h3>Signup, onboarding, and profile setup</h3>
+            <p>
+              Fill the obvious fields instantly without turning the whole page into a noisy
+              extension experience.
+            </p>
+          </article>
+          <article class="use-case-card use-case-card--glass">
+            <span class="use-case-card__eyebrow">Contact</span>
+            <h3>Lead forms, newsletters, and event pages</h3>
+            <p>
+              Quick autofill where the friction should be close to zero, plus save prompts
+              that wait until you’re actually done.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section id="features" class="section reveal">
         <div class="section-head">
           <p class="eyebrow">Why it feels better</p>
@@ -144,6 +200,31 @@
               Profile values, remembered responses, and muted sites stay inside browser
               extension storage instead of being pushed to a BreezeFill backend.
             </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section rhythm reveal">
+        <div class="section-head section-head--tight">
+          <p class="eyebrow">Flow, not friction</p>
+          <h2>A product rhythm that stays out of the way.</h2>
+        </div>
+
+        <div class="rhythm-grid">
+          <article class="rhythm-step">
+            <span>01</span>
+            <h3>Recognize the field</h3>
+            <p>Email, phone, links, education, and common application questions map automatically.</p>
+          </article>
+          <article class="rhythm-step">
+            <span>02</span>
+            <h3>Suggest one likely answer</h3>
+            <p>The UI stays small and calm so it feels closer to a native hint than a popover.</p>
+          </article>
+          <article class="rhythm-step">
+            <span>03</span>
+            <h3>Ask before remembering</h3>
+            <p>New values get offered back to you after the interaction, not silently harvested mid-form.</p>
           </article>
         </div>
       </section>
@@ -262,6 +343,31 @@
         </div>
       </section>
 
+      <section class="section launch-card reveal">
+        <div class="launch-card__shell">
+          <div>
+            <p class="eyebrow">Launch ready</p>
+            <h2>A cleaner funnel for Product Hunt and early users.</h2>
+            <p>
+              This site is set up so you can point people to one polished homepage, one
+              hosted privacy page, and one obvious install path. Swap in the Chrome Web Store
+              URL when it goes live and the site becomes your real launch destination.
+            </p>
+          </div>
+
+          <div class="launch-card__stack">
+            <div class="launch-pill">
+              <strong>For Vercel</strong>
+              <span>Root URL, assets, and `/privacy` are already wired.</span>
+            </div>
+            <div class="launch-pill">
+              <strong>For Product Hunt</strong>
+              <span>Use the homepage as the launch URL and the screenshots as your gallery.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="faq" class="section faq reveal">
         <div class="section-head section-head--tight">
           <p class="eyebrow">FAQ</p>
@@ -293,7 +399,7 @@
           <details>
             <summary>What should I use for the Chrome Web Store privacy-policy URL?</summary>
             <p>
-              Publish this site with GitHub Pages and use the hosted <code>/privacy/</code> page
+              Deploy this site on Vercel and use the hosted <code>/privacy/</code> page
               as the public policy URL.
             </p>
           </details>
