@@ -107,6 +107,38 @@ The core code is written as a standard Web Extension, so the same project can be
 npm run safari:convert
 ```
 
+### Mac Safari
+
+1. Run `npm run safari:convert`.
+2. Open the generated Xcode project in `build/safari/BreezeFill`.
+3. In Xcode, pick your Apple team under Signing.
+4. Build and run the macOS app target.
+5. Open Safari on your Mac and enable BreezeFill in Safari extension settings.
+
+### iPhone and iPad Safari
+
+If you want BreezeFill on iOS mobile, Safari is the path.
+
+1. Run:
+
+```bash
+bash scripts/package-safari.sh --ios-only
+```
+
+2. Open the generated Xcode project in `build/safari/BreezeFill`.
+3. In Xcode, set your Apple team and fix the bundle identifier if Xcode asks.
+4. Connect your iPhone or choose an iPhone or iPad simulator.
+5. Run the iOS app target from Xcode.
+6. On the device, open `Settings` → `Apps` → `Safari` → `Extensions` → `BreezeFill`.
+7. Turn on `Allow Extension`.
+8. Open Safari and test BreezeFill on a normal web form.
+
+Important:
+
+- iPhone and iPad support is for `Safari`, not Chrome on iOS.
+- This works on web pages opened in Safari, not inside arbitrary native iPhone apps.
+- For other people to install it on iPhone, ship it through `TestFlight` or the `App Store`.
+
 More details are in [SAFARI.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/SAFARI.md).
 
 ## Launch site

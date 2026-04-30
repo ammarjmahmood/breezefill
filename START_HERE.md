@@ -27,6 +27,32 @@ Important:
 - You do **not** need to run `npm install` to use the extension.
 - `npm install` is only for tests, packaging, and launch tooling.
 
+## 1b. If you want BreezeFill on iPhone or iPad
+
+You can install BreezeFill on `Safari` for iPhone and iPad, but not Chrome on iOS.
+
+1. On a Mac, open this repo in Terminal.
+2. Run:
+
+```bash
+bash scripts/package-safari.sh --ios-only
+```
+
+3. Open the generated Xcode project in `build/safari/BreezeFill`.
+4. In Xcode, choose your Apple team under Signing.
+5. Plug in your iPhone or pick an iPhone or iPad simulator.
+6. Press `Run` in Xcode to install the app.
+7. On the device, go to `Settings` → `Apps` → `Safari` → `Extensions`.
+8. Turn on `BreezeFill`.
+9. Open Safari and test it on a normal form.
+
+Important:
+
+- This is for `Safari` on iPhone and iPad.
+- Chrome on iPhone does not support this extension install flow.
+- It works on mobile web pages in Safari, not inside random native apps.
+- If you want other people to install it, the clean path is `TestFlight` or the `App Store`.
+
 ## 2. If you are the owner and want a public launch site
 
 The cleanest path is Vercel.
