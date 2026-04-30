@@ -64,6 +64,9 @@
             <a class="button button--primary" data-install-link href="https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip">
               Install BreezeFill
             </a>
+            <a class="button button--secondary" data-safari-mac-link download href="./assets/downloads/BreezeFill-macOS.zip">
+              Download for Safari on Mac
+            </a>
             <a class="button button--secondary" href="#install">
               See install steps
             </a>
@@ -73,8 +76,8 @@
           </div>
 
           <p class="hero__note">
-            No build step for install. Download the repo, load it unpacked in Chrome, and
-            you’re in.
+            Chrome can be loaded unpacked from the repo today, and Safari on Mac now has a
+            notarized app download too.
           </p>
 
           <div class="hero__pills" aria-label="Highlights">
@@ -320,17 +323,21 @@
       <section id="install" class="section install reveal">
         <div class="section-head">
           <p class="eyebrow">Install in minutes</p>
-          <h2>Install from GitHub now, then switch to the Chrome Web Store later.</h2>
+          <h2>Install in Chrome today or download the Safari Mac app.</h2>
           <p>
-            The GitHub install is live today. The Chrome Web Store path is already planned
-            into the page and can switch on the moment the listing exists.
+            BreezeFill is live today as a Chrome GitHub install and a notarized Safari Mac
+            download. The Chrome Web Store path is already planned into the page and can
+            switch on the moment the listing exists.
           </p>
         </div>
 
         <div class="install-shell">
           <div class="tab-row" role="tablist" aria-label="Install methods">
             <button class="tab-button is-active" type="button" data-tab="github" role="tab" aria-selected="true">
-              Install from GitHub
+              Chrome from GitHub
+            </button>
+            <button class="tab-button" type="button" data-tab="safari-mac" role="tab" aria-selected="false">
+              Safari on Mac
             </button>
             <button class="tab-button" type="button" data-tab="store" role="tab" aria-selected="false">
               <span data-store-tab-label>Chrome Web Store soon</span>
@@ -354,6 +361,28 @@
               <a href="https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip" target="_blank" rel="noreferrer">
                 github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip
               </a>
+            </div>
+          </div>
+
+          <div class="tab-panel" data-panel="safari-mac" role="tabpanel" hidden>
+            <ol class="steps">
+              <li>Download the notarized Safari Mac app.</li>
+              <li>Unzip the download if your browser saves it as a ZIP archive.</li>
+              <li>Drag <code>BreezeFill.app</code> into <code>Applications</code>.</li>
+              <li>Open <code>BreezeFill</code> once from <code>Applications</code>.</li>
+              <li>Open <code>Safari</code> → <code>Settings</code> → <code>Extensions</code>.</li>
+              <li>Turn on <code>BreezeFill</code> and allow website access if Safari asks.</li>
+              <li>Open a normal form in Safari and BreezeFill is ready.</li>
+            </ol>
+            <div class="callout">
+              <strong>Direct download:</strong>
+              <a data-safari-mac-link download href="./assets/downloads/BreezeFill-macOS.zip">
+                breezefill.vercel.app/assets/downloads/BreezeFill-macOS.zip
+              </a>
+            </div>
+            <div class="callout callout--soft">
+              <strong>Safari tip:</strong> <code>Safari → Safari Extensions…</code> opens the
+              App Store. To enable BreezeFill, use <code>Safari → Settings → Extensions</code>.
             </div>
           </div>
 
@@ -498,6 +527,15 @@
             <p>
               No. For install, you only need the repo contents. <code>npm install</code> is
               only for tests, screenshots, and packaging scripts.
+            </p>
+          </details>
+          <details>
+            <summary>How do I turn it on in Safari after downloading the Mac app?</summary>
+            <p>
+              Open the exported <code>BreezeFill.app</code> once, then go to
+              <code>Safari → Settings → Extensions</code> and enable BreezeFill there.
+              The <code>Safari → Safari Extensions…</code> menu opens the App Store, not your
+              installed app extensions.
             </p>
           </details>
           <details>

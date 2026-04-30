@@ -8,6 +8,8 @@ BreezeFill is a polished browser extension that suggests autofill values while u
 
 [Download BreezeFill ZIP](https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip)
 
+[Download BreezeFill for Safari on Mac](https://breezefill.vercel.app/assets/downloads/BreezeFill-macOS.zip)
+
 Fast install: download the ZIP, unzip it, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the unzipped folder.
 
 ## Start here
@@ -59,6 +61,29 @@ Important:
 - no build step is required for install
 - `npm install` is only needed for tests and release tooling
 
+## Fast install for Safari on Mac
+
+If someone just wants to use BreezeFill in Safari on Mac right now:
+
+Direct download:
+
+[Download BreezeFill for Safari on Mac](https://breezefill.vercel.app/assets/downloads/BreezeFill-macOS.zip)
+
+Then:
+
+1. Download the notarized Mac app ZIP.
+2. Unzip it if Safari saves it as an archive.
+3. Drag `BreezeFill.app` into `Applications`.
+4. Open `BreezeFill` once from `Applications`.
+5. Open `Safari` → `Settings` → `Extensions`.
+6. Turn on `BreezeFill`.
+7. Allow website access if Safari asks.
+
+Important:
+
+- `Safari → Safari Extensions...` opens the App Store, not your installed extension list.
+- To enable BreezeFill after download, use `Safari → Settings → Extensions`.
+
 ## Local verification
 
 Run the syntax check:
@@ -109,11 +134,15 @@ npm run safari:convert
 
 ### Mac Safari
 
+If you only want the finished app, use the hosted download above instead of building it yourself.
+
+If you want to generate the Safari Mac app from source:
+
 1. Run `npm run safari:convert`.
 2. Open the generated Xcode project in `build/safari/BreezeFill`.
 3. In Xcode, pick your Apple team under Signing.
 4. Build and run the macOS app target.
-5. Open Safari on your Mac and enable BreezeFill in Safari extension settings.
+5. Open `Safari` → `Settings` → `Extensions` and enable BreezeFill there.
 
 ### iPhone and iPad Safari
 

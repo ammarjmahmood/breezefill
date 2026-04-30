@@ -1,6 +1,8 @@
 const config = {
   // Paste your real Chrome Web Store URL here after the listing is live.
   chromeStoreUrl: "",
+  // Hosted notarized macOS app bundle for Safari users.
+  safariMacZipUrl: "./assets/downloads/BreezeFill-macOS.zip",
   // Paste your donation link here later if you want a live support button.
   donationUrl: "",
   // This can be a local .mp4/.webm file, a YouTube URL, or a Loom share URL.
@@ -61,6 +63,23 @@ function setInstallLink() {
     storeSoonState.hidden = false;
     storeLiveState.hidden = true;
   }
+}
+
+function setSafariMacLinks() {
+  const links = document.querySelectorAll("[data-safari-mac-link]");
+
+  links.forEach((link) => {
+    if (!config.safariMacZipUrl) {
+      link.removeAttribute("href");
+      link.setAttribute("aria-disabled", "true");
+      link.classList.add("is-disabled");
+      return;
+    }
+
+    link.href = config.safariMacZipUrl;
+    link.removeAttribute("aria-disabled");
+    link.classList.remove("is-disabled");
+  });
 }
 
 function setDonationLink() {
@@ -272,6 +291,7 @@ function initReveal() {
 }
 
 setInstallLink();
+setSafariMacLinks();
 setDonationLink();
 setDemoVideo();
 initTabs();

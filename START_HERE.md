@@ -27,7 +27,28 @@ Important:
 - You do **not** need to run `npm install` to use the extension.
 - `npm install` is only for tests, packaging, and launch tooling.
 
-## 1b. If you want BreezeFill on iPhone or iPad
+## 1b. If you want BreezeFill in Safari on Mac right now
+
+Direct download:
+
+[Download BreezeFill for Safari on Mac](https://breezefill.vercel.app/assets/downloads/BreezeFill-macOS.zip)
+
+Then:
+
+1. Download the Mac app ZIP.
+2. Unzip it if your browser saves it as an archive.
+3. Drag `BreezeFill.app` into `Applications`.
+4. Open `BreezeFill` once from `Applications`.
+5. Open `Safari` → `Settings` → `Extensions`.
+6. Turn on `BreezeFill`.
+7. Allow website access if Safari asks.
+
+Important:
+
+- `Safari → Safari Extensions...` opens the App Store.
+- To enable BreezeFill after download, use `Safari → Settings → Extensions`.
+
+## 1c. If you want BreezeFill on iPhone or iPad
 
 You can install BreezeFill on `Safari` for iPhone and iPad, but not Chrome on iOS.
 
