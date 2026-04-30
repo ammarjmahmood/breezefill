@@ -4,11 +4,11 @@ BreezeFill is a polished browser extension that suggests autofill values while u
 
 ![BreezeFill demo](docs/assets/demo/breezefill-demo.gif)
 
-[Live website demo](https://breezefill.vercel.app/)
+## Quick links
 
-[Download BreezeFill ZIP](https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip)
-
-[Download BreezeFill for Safari on Mac](https://breezefill.vercel.app/assets/downloads/BreezeFill-macOS.zip)
+- [Live website demo](https://breezefill.vercel.app/)
+- [Download for Chrome from GitHub](https://github.com/ammarjmahmood/breezefill/archive/refs/heads/main.zip)
+- [Download for Safari on Mac](https://breezefill.vercel.app/assets/downloads/BreezeFill-macOS.zip)
 
 Fast install: download the ZIP, unzip it, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the unzipped folder.
 
