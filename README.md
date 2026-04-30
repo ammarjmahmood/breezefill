@@ -6,6 +6,8 @@ BreezeFill is a polished browser extension that suggests autofill values while u
 
 Fast install: download the ZIP, unzip it, open `chrome://extensions`, turn on **Developer mode**, click **Load unpacked**, and select the unzipped folder.
 
+Check out website here: https://breezefill.vercel.app/
+
 ## Start here
 
 If you want the easiest step-by-step version, open [START_HERE.md](/Users/ammarmahmood/Documents/Codex/2026-04-28/okay-build-me-a-new-project/START_HERE.md).
